@@ -39,7 +39,7 @@ class RolesController extends Controller
 	public function create()
 	{
 		/*create permission*/
-		//$this->createRolePermission();
+		$this->createRolePermission();
 
 		$permission =array();
 		$parents = Permission::where('parent_id', NULL)->orderBy('name')->pluck('name', 'id')->toArray();		
