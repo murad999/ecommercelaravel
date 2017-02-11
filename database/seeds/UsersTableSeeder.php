@@ -13,16 +13,18 @@ class UsersTableSeeder extends Seeder
     {
         // factory(App\User::class,3)->create();
 
-    	 DB::table('products')->insert([/*[
+    	 DB::table('products')->insert([[
             'catagory_id' => '1',
             'title' => 'mouse',
             'description' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
             'price' => '100',
             'img' => 'jpg',
             'status' => 'active',
-        ],*/
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ],
         [
-            'catagory_id' => '1',
+            'catagory_id' => '2',
             'title' => 'keyboard',
             'description' => 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.',
             'price' => '200',
