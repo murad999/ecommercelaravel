@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Catagory;
+use Validator;
 
 class CatagoriesController extends Controller
 {
@@ -13,7 +15,8 @@ class CatagoriesController extends Controller
      */
     public function index()
     {
-        //
+        $data=Catagory::all();
+        return view('catagories.index',['data'=>$data]);
     }
 
     /**
@@ -23,7 +26,9 @@ class CatagoriesController extends Controller
      */
     public function create()
     {
-        //
+        $data=Catagory::all('title','id');
+        //dd($data);
+       return view('catagories.create',['data'=>$data]);
     }
 
     /**
@@ -32,9 +37,23 @@ class CatagoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $data=request()->except('_method','_token');
+           
+           $validator = Validator::make(
+            $data,[
+                'title'=> 'required|unique:catagories|max:50'
+            ]);
+        if ($validator->fails())
+        {
+            return redirect()->route('catagories.create')->withErrors($validator)->withInput($data);
+        }
+
+        $alldata=Catagory::create($data);
+        if($alldata){
+            return redirect()->route('catagories.index');
+        }
     }
 
     /**
@@ -56,7 +75,7 @@ class CatagoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        echo "edit";
     }
 
     /**

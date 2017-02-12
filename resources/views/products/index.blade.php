@@ -1,8 +1,9 @@
-  @extends('layouts.app')
+@extends('layouts.admin')
+@section('title', 'Subscription List')
 @section('content')
 <div class="container">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-10">
 			<div class="panel panel-info">
 		      <div class="panel-heading">Panel with panel-info class</div>
 		      <div class="panel-body">

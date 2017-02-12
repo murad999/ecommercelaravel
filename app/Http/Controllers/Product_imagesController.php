@@ -13,7 +13,7 @@ class Product_imagesController extends Controller
      */
     public function index()
     {
-        //
+        return view('product_images.index');
     }
 
     /**
@@ -23,7 +23,7 @@ class Product_imagesController extends Controller
      */
     public function create()
     {
-        //
+        return view('product_images.create');
     }
 
     /**
