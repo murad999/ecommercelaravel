@@ -28,8 +28,9 @@
 								{!! Form::label('parent_name', null, ['class' => 'control-label']) !!}
 								
 									<select name="parent_id">
+									
 									<option value="0">Select</option>}
-									option
+								
 									@foreach ($data as $element)
 										<option value="{{$element->id}}">{{$element->title}}</option>
 										@endforeach
